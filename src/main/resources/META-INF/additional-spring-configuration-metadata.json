@@ -1,0 +1,18 @@
+{
+  "properties": [
+    {
+      "name": "spring.cloud.gateway.routes.-id",
+      "type": "java.lang.String",
+      "description": "Description for spring.cloud.gateway.routes.-id."
+    },
+    {
+      "name": "spring.cloud.gateway.routes.uri",
+      "type": "java.lang.String",
+      "description": "Description for spring.cloud.gateway.routes.uri."
+    },
+    {
+      "name": "spring.cloud.gateway.routes.predicates",
+      "type": "java.lang.String",
+      "description": "Description for spring.cloud.gateway.routes.predicates."
+    }
+  ] }
