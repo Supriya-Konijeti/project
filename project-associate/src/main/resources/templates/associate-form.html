@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="Content-Type" content="text/html"; charset="utf-8"/>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Save Associate</title>
+</head>
+
+<body bgcolor="Lightskyblue">
+
+<div class="container">
+
+    <h3> Associate Tracker</h3>
+    <hr>
+
+    <p class="h4 mb-4">Save Associate</p>
+
+    <form action="#" th:action="@{/associates/save}"
+          th:object="${associates}" method="POST">
+
+        <!-- Add hidden form field to handle update -->
+        <label>Associate Id : </label>
+        <input type="text" th:field="*{associateId}"
+               class="form-control mb-4 col-4" placeholder="Associate ID"/>
+        <label>Associate Name : </label>
+        <input type="text" th:field="*{name}"
+               class="form-control mb-4 col-4" placeholder="Associate Name">
+        <label>Associate Email : </label>
+        <input type="text" th:field="*{email}"
+               class="form-control mb-4 col-4" placeholder="Associate Email">
+        <label>Associate Mobile Numbr : </label>
+        <input type="text" th:field="*{mobileNumber}"
+               class="form-control mb-4 col-4" placeholder="Mobile Number">
+        <label>Skills(Can be give as 1,2..) : </label>
+        <input type="text" th:field="*{skills}"
+               class="form-control mb-4 col-4" placeholder="Associates Skill">
+
+        <span th:each="skill : ${associates.skills}">
+			<br/>&nbsp;&nbsp;<span th:text="${skill.skill_title}" />
+		</span>
+      <!--  <form th:action="@{/associate/{id}/skills(id=${associates.associateId})}" method="post" enctype="multipart/form-data" >
+            <select name="skillId">
+                <option th:each="skill : ${skills}">Skill</option>
+            </select>
+            <input type="submit" value="Add skill"/>
+        </form>-->
+        <button type="submit" class="btn btn-info col-2">Save</button>
+
+    </form>
+
+    <hr>
+    <a th:href="@{/associates/list}">Back to Associates List</a>
+
+</div>
+</body>
+
+</html>
